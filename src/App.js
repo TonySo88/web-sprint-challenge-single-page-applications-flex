@@ -1,16 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { Route, Link } from "react-router-dom";
 import Pizza from "./components/Pizza";
 import PizzaList from "./components/PizzaList";
 
 const App = () => {
-  const [nameState, setNameState] = useState({
-    name: "",
-  });
+  // const [nameState, setNameState] = useState({
+  //   name: "",
+  // });
 
-  const addName = (newName) => {
-    setNameState([...nameState, newName]);
-  };
+  // const addName = (newName) => {
+  //   setFormState([...formState, newName]);
+  // };
 
   return (
     <div className="App">
@@ -20,13 +20,8 @@ const App = () => {
         <Link to="/">Pizza</Link>
         <Link to="/pizza-list">Build Your Pizza!</Link>
       </div>
-      <Route
-        exact
-        path="/pizza-list/"
-        component={PizzaList}
-        addName={addName}
-      />
-      <Route path="/" component={Pizza} Pizza={nameState} />
+      <Route exact path="/pizza-list/" component={PizzaList} />
+      <Route path="/" component={Pizza} />
     </div>
   );
 };
